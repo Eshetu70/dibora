@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dibora Circle | Empowering Women</title>
+  <link rel="stylesheet" href="css/css.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Dibora Circle</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#mentorship">Mentorship</a></li>
+          <li><a href="#fundraising">Fundraising</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#podcast">Podcast</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Empowering Women in Ethiopia & Mentoring Communities in the U.S.</h2>
+      <p>Join Dibora Circle in creating lasting impact through love, support, and opportunities.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h3>About Dibora Circle</h3>
+      <p>We are a nonprofit dedicated to uplifting impoverished women in Ethiopia and providing mentorship to communities in the United States. Our mission includes education, faith-based support, and economic empowerment.</p>
+    </div>
+  </section>
+
+  <!-- Mentorship Section -->
+  <section id="mentorship" class="section">
+    <div class="container">
+      <h3>Mentorship Programs</h3>
+      <p>Faith-based and community-driven mentorship initiatives available in multiple cities. Programs are structured like church gatherings, offering spiritual, emotional, and professional guidance.</p>
+    </div>
+  </section>
+
+  <!-- Fundraising Section -->
+  <section id="fundraising" class="section">
+    <div class="container">
+      <h3>Fundraising Campaigns</h3>
+      <p>We actively raise funds to support women's education, healthcare, and business training in Ethiopia.</p>
+      <a href="#donate" class="button">Support Now</a>
+    </div>
+  </section>
+
+  <!-- Donation Section -->
+  <section id="donate" class="section">
+    <div class="container">
+      <h3>Donate</h3>
+      <p>Your contributions help us provide sustainable support to women and mentorship communities. Every dollar counts.</p>
+      <form action="https://www.paypal.com/donate" method="post" target="_blank">
+        <!-- Replace with actual PayPal donation code -->
+        <input type="submit" value="Donate via PayPal" class="button" />
+      </form>
+    </div>
+  </section>
+
+  <!-- Podcast / YouTube Section -->
+  <section id="podcast" class="section">
+    <div class="container">
+      <h3>Our Podcast</h3>
+      <p>This podcast is designed to inspire, empower, and motivate individuals to unlock their full potential and live their best lives. Through enhancing self-awareness, shifting perspectives, and reshaping thought patterns, we challenge conventional norms to help you create lasting positive change.</p>
+      <p><a href="https://www.youtube.com/channel/UCHU_UMzr0U5KXjmA7jCEbqg" target="_blank">Watch more on our YouTube Channel</a></p>
+      <div id="youtube-videos" class="video-grid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Dibora Circle. All rights reserved.</p>
+      <p><a href="mailto:contact@diboracircle.org">contact@diboracircle.org</a></p>
+    </div>
+  </footer>
+
+  <!-- YouTube Script -->
+  <script>
+    const channelId = 'UCHU_UMzr0U5KXjmA7jCEbqg';
+    const apiKey = 'YOUR_YOUTUBE_API_KEY';
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=6`)
+      .then(response => response.json())
+      .then(data => {
+        const videoContainer = document.getElementById('youtube-videos');
+        data.items.forEach(item => {
+          if (item.id.kind === 'youtube#video') {
+            const video = document.createElement('iframe');
+            video.src = `https://www.youtube.com/embed/${item.id.videoId}`;
+            video.width = '300';
+            video.height = '200';
+            video.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            video.allowFullscreen = true;
+            videoContainer.appendChild(video);
+          }
+        });
+      });
+  </script>
+</body>
+</html>
+
