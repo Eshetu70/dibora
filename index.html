@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,37 +12,85 @@
     section.section.active {
       display: block;
     }
+
+    /* Menu Styles */
+    .menu-toggle {
+      display: block;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    nav ul.nav-list {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      margin: 0;
+    }
+
+    nav ul.nav-list li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul.nav-list li a:hover {
+      color: #ffe600;
+    }
+
+    @media (max-width: 768px) {
+      nav ul.nav-list {
+        display: none;
+        flex-direction: column;
+        background-color: #0c2340;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      nav ul.nav-list.show {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
- <!-- Header -->
-<header>
-  <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
-    
-    <!-- Logo on the left -->
-    <div style="display: flex; align-items: center;">
-      <a href="#donate" onclick="showSection('donate')">
-        <img src="images/logo.png" alt="Deborah Circle Logo" style="height: 60px; margin-right: 15px;" />
-      </a>
-      <h1 style="font-size: 1.8rem; margin: 0; color: white;">DEBORAH CIRCLE</h1>
-    </div>
+  <header style="background: linear-gradient(90deg, #0c2340, #007a33); color: white; position: relative;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <!-- Logo on the left -->
+      <div style="display: flex; align-items: center;">
+        <a href="#donate" onclick="showSection('donate')">
+          <img src="images/logo.png" alt="Deborah Circle Logo" style="height: 60px; margin-right: 15px;" />
+        </a>
+        <h1 style="font-size: 1.8rem; margin: 0; color: white;">DEBORAH CIRCLE</h1>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-    <!-- Navigation on the right -->
-    <nav>
-      <ul style="display: flex; list-style: none; gap: 20px; margin: 0;">
-        <li><a href="#about" onclick="showSection('about')">About</a></li>
-        <li><a href="#mentorship" onclick="showSection('mentorship')">Mentorship</a></li>
-        <li><a href="#fundraising" onclick="showSection('fundraising')">Fundraising</a></li>
-        <li><a href="#donate" onclick="showSection('donate')">Donate</a></li>
-        <li><a href="#podcast" onclick="showSection('podcast')">Podcast</a></li>
-      </ul>
-    </nav>
-
-  </div>
-</header>
-
+      <!-- Navigation -->
+      <nav>
+        <ul class="nav-list" id="navList">
+          <li><a href="#about" onclick="showSection('about')">About</a></li>
+          <li><a href="#mentorship" onclick="showSection('mentorship')">Mentorship</a></li>
+          <li><a href="#fundraising" onclick="showSection('fundraising')">Fundraising</a></li>
+          <li><a href="#donate" onclick="showSection('donate')">Donate</a></li>
+          <li><a href="#podcast" onclick="showSection('podcast')">Podcast</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -83,7 +131,6 @@
       <h3>Donate</h3>
       <p>Your contributions help us provide sustainable support to women and mentorship communities. Every dollar counts.</p>
       <form action="https://www.paypal.com/donate" method="post" target="_blank">
-        <!-- Replace with actual PayPal donation code -->
         <input type="submit" value="Donate via PayPal" class="button" />
       </form>
     </div>
@@ -93,7 +140,7 @@
   <section id="podcast" class="section">
     <div class="container">
       <h3>Our Podcast</h3>
-      <p>This podcast is designed to inspire, empower, and motivate individuals to unlock their full potential and live their best lives. Through enhancing self-awareness, shifting perspectives, and reshaping thought patterns, we challenge conventional norms to help you create lasting positive change.</p>
+      <p>This podcast is designed to inspire, empower, and motivate individuals to unlock their full potential and live their best lives.</p>
       <p><a href="https://www.youtube.com/channel/UCHU_UMzr0U5KXjmA7jCEbqg" target="_blank">Watch more on our YouTube Channel</a></p>
       <div id="youtube-videos" class="video-grid"></div>
     </div>
@@ -114,7 +161,7 @@
       document.getElementById(id).classList.add('active');
     }
 
-     function toggleMenu() {
+    function toggleMenu() {
       const navList = document.getElementById('navList');
       navList.classList.toggle('show');
     }
