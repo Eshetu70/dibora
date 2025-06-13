@@ -284,6 +284,40 @@
 
 
 
+ .hero-toolbar {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .language-selector select {
+      background: white;
+      color: #333;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .donate-button {
+      background: #ffe600;
+      color: #0c2340;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .donate-button:hover {
+      background: #ffcf00;
+    }
+
   </style>
 </head>
 <body>
@@ -344,6 +378,14 @@
   </section>   -->
 
 <section class="hero" id="hero">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+    <!-- 🔵 Left: Language Translator -->
+    <div id="google_translate_element" class="cta-translate"></div>
+
+    <!-- 🔴 Right: Donate Button -->
+    <a href="#donate" class="donate-button" style="background-color: #ffe600; color: #0c2340; padding: 8px 16px; border-radius: 5px; font-weight: bold; text-decoration: none;">Donate</a>
+  </div>
+
   <div class="hero-overlay">
     <div class="container">
       <h2 id="hero-title">Empowering Women in Ethiopia & Mentoring Communities in the U.S.</h2>
@@ -352,6 +394,27 @@
   </div>
 </section>
 
+<!-- Google Translate Script -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,es,am,ar,fr,om,ti',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<!-- Google Translate Widget (hidden but initialized) -->
+
+
+<!-- Google Translate Setup -->
+
+
+
+
   <!-- Example Sections -->
   <section id="about" class="section active">
     <div class="container">
@@ -359,6 +422,74 @@
       <p>We are a nonprofit dedicated to uplifting impoverished women in Ethiopia and providing mentorship to communities in the United States. Our mission includes education, faith-based support, and economic empowerment.</p>
     </div>
   </section>
+
+  <section id="vision" class="section active">
+  <div class="container">
+    <h3>Our Vision</h3>
+    <p>Providing microloans, training, and support to help women build sustainable futures.</p>
+    <a href="#donate" class="button">Donate Now</a>
+    <a href="#involve" class="button">Join Us</a>
+    <a href="#about" class="button">Learn More</a>
+  </div>
+</section>
+
+<section id="mission" class="section active">
+  <div class="container">
+    <h3>Our Mission</h3>
+    <p>To awaken and empower women to live for their God-given purpose by using their gifts and talents through mentorship.</p>
+    <p>To equip low-income women in Ethiopia with the tools, training, and financial support they need to start businesses, gain independence, and uplift their communities.</p>
+  </div>
+</section>
+
+<section id="impact" class="section active">
+  <div class="container">
+    <h3>Impact at a Glance</h3>
+    <ul>
+      <li>💼 <strong>_</strong> Women Trained</li>
+      <li>🌱 <strong>_</strong> Small Businesses Launched</li>
+      <li>🧑‍🏫 <strong>_</strong> Community Members Empowered</li>
+    </ul>
+  </div>
+</section>
+
+<section id="featured" class="section active">
+  <div class="container">
+    <h3>Mentorship for Women</h3>
+    <p>We believe every woman has unique gifts and talents. Our program offers holistic mentorship—supporting women in all areas of life so they can discover their purpose, grow with confidence, and reach their full potential.</p>
+    <p><strong>📱 Join Our Viber Community!</strong> Stay connected and inspired through our monthly women's mentorship meetings, special classes, and book club discussions.</p>
+  </div>
+</section>
+
+<section id="partnership" class="section active">
+  <div class="container">
+    <h3>In Partnership With Enat Bank & Enkuwa Tabra</h3>
+    <ul>
+      <li>💰 Small, Low-Interest Loans to launch or grow women-led businesses</li>
+      <li>🧭 Mentorship for business guidance and confidence</li>
+      <li>📚 Training in Financial Literacy & Personal Development</li>
+    </ul>
+    <p>Through our program women gain the tools to achieve financial independence, support their families, and become agents of change in their communities.</p>
+  </div>
+</section>
+
+<section id="help" class="section active">
+  <div class="container">
+    <h3>How You Can Help</h3>
+    <p>Become a Change-Maker Today</p>
+    <ul>
+      <li>💳 Make a One-Time or Monthly Gift</li>
+      <li>📢 Spread the Word on Social Media</li>
+    </ul>
+  </div>
+</section>
+
+<section id="stories" class="section active">
+  <div class="container">
+    <h3>Stories of Hope</h3>
+    <p>Real-life testimonials coming soon that share the impact of your support.</p>
+  </div>
+</section>
+
 
   <section id="mentorship" class="section">
     <div class="container">
@@ -426,12 +557,25 @@
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Deborah Circle. All rights reserved.</p>
-      <p><a href="mailto:contact@diboracircle.org">contact@diboracircle.org</a></p>
-    </div>
-  </footer>
+ <footer>
+  <div class="container">
+    <section id="newsletter">
+      <h3>Stay Connected</h3>
+       <form action="mailto:DCMinistrypodcast@gmail.com" method="POST" enctype="text/plain">
+        <input type="text" placeholder="Name" name="name" required>
+        <input type="email" placeholder="Email Address" name="email" required>
+        <button type="submit" class="button">Subscribe</button>
+      </form>
+      <p>Follow us on: 
+        <a href="#">Facebook</a> | 
+        <a href="#">Instagram</a> | 
+        <a href="#">LinkedIn</a>
+      </p>
+    </section>
+    <p>&copy; 2025 Deborah Circle. EIN: 99-5067634 | Registered 501(c)(3) Nonprofit</p>
+    <p>Contact: <a href="mailto:DCMinistrypodcast@gmail.com">DCMinistrypodcast@gmail.com</a> | (913) 636-2316</p>
+  </div>
+</footer>
 
   <script>
     function toggleMenu() {
@@ -485,6 +629,8 @@
   showSlide(currentSlide); // Initial load
   setInterval(nextSlide, 6000); // Change slide every 6 seconds
 </script>
+
+
 
 </body>
 </html>
