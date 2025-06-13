@@ -27,6 +27,7 @@
       </a>
       <h1 style="font-size: 1.8rem; margin: 0; color: white;">DEBORAH CIRCLE</h1>
     </div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
     <!-- Navigation on the right -->
     <nav>
@@ -111,6 +112,11 @@
       const sections = document.querySelectorAll('section.section');
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+    }
+
+     function toggleMenu() {
+      const navList = document.getElementById('navList');
+      navList.classList.toggle('show');
     }
   </script>
 </body>
