@@ -268,23 +268,31 @@
   justify-content: center;
   text-align: center;
   color: white;
-  padding: 0 20px;
+  padding: 10px 0; /* No side padding, less vertical space */
   flex-direction: column;
+  margin: 0;
+}
+
+.hero-overlay .container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px; /* Light inner padding */
 }
 
 .hero-overlay h2 {
   font-size: 2.2rem;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .hero-overlay p {
   font-size: 1.1rem;
+  margin: 0;
 }
 
+/* 👇 Mobile adjustments */
 @media (max-width: 768px) {
   .hero-overlay {
-    padding: 40px 15px;
-    height: auto;
+    padding-top: 20px;
   }
 
   .hero-overlay h2 {
