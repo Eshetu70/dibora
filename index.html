@@ -127,30 +127,51 @@
       color: #ffe600;
     }
 
-    @media (min-width: 769px) {
-      .menu-toggle {
-        display: block;
-      }
+   @media (min-width: 769px) {
+  .menu-toggle {
+    display: block;
+  }
 
-      nav ul.nav-inline {
-        display: flex;
-        gap: 20px;
-      }
+  nav ul.nav-inline {
+    display: flex;
+    gap: 20px;
+  }
 
-      nav ul.nav-inline li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
+  nav ul.nav-inline li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-      nav ul.nav-inline li a:hover {
-        color: #ffe600;
-      }
+  nav ul.nav-inline li a:hover {
+    color: #ffe600;
+  }
 
-      nav ul.nav-list {
-        display: none;
-      }
-    }
+  nav ul.nav-list {
+    display: none;
+  }
+}
+
+/* 👇 MOBILE STYLE */
+@media (max-width: 768px) {
+  nav ul.nav-inline {
+    display: none;
+  }
+
+  .hero-overlay h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .hero-overlay {
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+}
+
 
     .hero {
       background: url('https://upload.wikimedia.org/wikipedia/commons/7/7f/Ethiopia_and_USA_flag.jpg') no-repeat center center/cover;
@@ -259,6 +280,9 @@
 .hero-overlay p {
   font-size: 1.2rem;
 }
+
+
+
 
   </style>
 </head>
