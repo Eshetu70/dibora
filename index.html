@@ -264,20 +264,25 @@
   height: 100%;
   background-color: rgba(255, 255, 255, 0.25); /* Light overlay */
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* 🔼 Push content to top */
   justify-content: center;
   text-align: center;
   color: white;
-  padding: 10px 0; /* No side padding, less vertical space */
-  flex-direction: column;
+  padding-top: 20px; /* Reduce space from top */
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
   margin: 0;
 }
 
 .hero-overlay .container {
   width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 10px; /* Light inner padding */
+  padding: 0 10px;
 }
+
+
 
 .hero-overlay h2 {
   font-size: 2.2rem;
@@ -347,7 +352,7 @@
 <header>
   <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center;">
-      <img src="images/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
+      <img src="images/logos.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
       <h1>DEBORAH CIRCLE</h1>
     </div>
 
@@ -401,23 +406,25 @@
       <p>Join Deborah Circle in creating lasting impact through love, support, and opportunities.</p>
     </div>
   </section>   -->
-
 <section class="hero" id="hero">
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 10px; position: absolute; top: 0; left: 0; right: 0; z-index: 10;">
     <!-- 🔵 Left: Language Translator -->
     <div id="google_translate_element" class="cta-translate"></div>
 
     <!-- 🔴 Right: Donate Button -->
-    <a href="#donate" class="donate-button" style="background-color: #ffe600; color: #0c2340; padding: 8px 16px; border-radius: 5px; font-weight: bold; text-decoration: none;">Donate</a>
+    <a href="#donate" class="donate-button" style="background-color: #ffe600; color: #0c2340; padding: 6px 12px; border-radius: 5px; font-weight: bold; text-decoration: none; font-size: 14px;">Donate</a>
   </div>
 
-  <div class="hero-overlay">
+  <div class="hero-overlay" style="padding-top: 30px;">
     <div class="container">
       <h2 id="hero-title">Empowering Women in Ethiopia & Mentoring Communities in the U.S.</h2>
       <p id="hero-text">Join Deborah Circle in creating lasting impact through love, support, and opportunities.</p>
     </div>
   </div>
 </section>
+
+
+
 
 <!-- Google Translate Script -->
 <script type="text/javascript">
