@@ -14,7 +14,7 @@
     }
 
     body {
-      background: #f8f9fa;
+       background-color: #f7f9fa;
       color: #333;
       line-height: 1.6;
     }
@@ -193,7 +193,7 @@
 
     .section {
       padding: 60px 20px;
-      background-color: white;
+     background: linear-gradient(to right, #dbe0e0 60%, #e8f7ff 100%);
       margin-bottom: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -548,15 +548,46 @@
     </div>
   </section>
   <!-- Podcast / YouTube Section -->
-<section id="podcast" class="section">
-  <div class="container">
-    <h3>Our Podcast</h3>
-    <p>This podcast is designed to inspire, empower, and motivate individuals to unlock their full potential and live their best lives. Through enhancing self-awareness, shifting perspectives, 
-      and reshaping thought patterns, we challenge conventional norms to help you create lasting positive change.</p>
-    <p><a href="https://www.youtube.com/channel/UCHU_UMzr0U5KXjmA7jCEbqg" target="_blank">Watch more on our YouTube Channel</a></p>
-    <div id="youtube-videos" class="video-grid"></div>
+<section id="podcast" class="section" style="background: linear-gradient(to right, #dbe0e0 60%, #e8f7ff 100%);">
+  <div class="container" style="text-align: center;">
+    <h3 style="font-size: 2.5rem; color: #d2691e; margin-bottom: 1rem; animation: fadeInDown 1s ease;">🎙️ Our Podcast</h3>
+    
+    <p style="font-size: 1.2rem; color: #4a4a4a; max-width: 800px; margin: 0 auto 30px;">
+      This podcast is designed to inspire, empower, and motivate individuals to unlock their full potential and live their best lives. Through enhancing self-awareness, shifting perspectives, and reshaping thought patterns, we challenge conventional norms to help you create lasting positive change.
+    </p>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); max-width: 900px; margin: 0 auto;">
+      <iframe 
+        src="https://www.youtube.com/embed/ZeCLtUofGNo" 
+        title="Deborah Circle Podcast" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen 
+        style="position: absolute; top:0; left: 0; width: 100%; height: 100%;">
+      </iframe>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 1rem;">
+      🎥 Watch more on our <a href="https://www.youtube.com/channel/UCHU_UMzr0U5KXjmA7jCEbqg" target="_blank" style="color: #d2691e; font-weight: bold; text-decoration: underline;">YouTube Channel</a>.
+    </p>
   </div>
 </section>
+
+<style>
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+
+
 
 <section id="who" class="section">
   <div class="container">
