@@ -14,7 +14,7 @@
   <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center;">
       <img src="images/logos.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
-      <h1>DEBORAH CIRCLE</h1>
+      <h1>DEBORAH CIRCLE MINISTRY</h1>
     </div>
 
     <!-- 🔷 Desktop Nav with its own sections -->
@@ -35,11 +35,12 @@
   <!-- 🔷 Mobile Dropdown Nav with different sections -->
   <nav>
     <ul class="nav-list" id="navList">
+       <li><a href="#who" onclick="showSection('who'); toggleMenu()">Who We Are</a></li>
       <span class="close-menu" onclick="toggleMenu()">&times;</span>
       <li><a href="#about" onclick="showSection('about'); toggleMenu()">About</a></li>
     <li><a href="#mentorship" onclick="showSection('mentorship'); toggleMenu()">Mentorship</a></li>
     <li><a href="#fundraising" onclick="showSection('fundraising'); toggleMenu()">Fundraising</a></li>
-      <li><a href="#who" onclick="showSection('who'); toggleMenu()">Who We Are</a></li>
+     
       <li><a href="#programs" onclick="showSection('programs'); toggleMenu()">Programs</a></li>
       <li><a href="#involve" onclick="showSection('involve'); toggleMenu()">Get Involved</a></li>
       <li><a href="#donate" onclick="showSection('donate'); toggleMenu()">Donate</a></li>
@@ -108,92 +109,161 @@
 
 
 
-  <!-- Example Sections -->
-  <section id="about" class="section active">
-    <div class="container">
-      <h3>About Deborah Circle</h3>
-      <p>We are a nonprofit dedicated to uplifting impoverished women in Ethiopia and providing mentorship to communities in the United States. Our mission includes education, faith-based support, and economic empowerment.</p>
-     <h3 style="margin-top: 2rem; font-size: 1.5rem;">Our Core Pillars</h3>
+  <!-- About Section -->
+<section id="about" class="section active">
+  <div class="container">
+    <h3>About Deborah Circle Ministry</h3>
+    <p>
+      Deborah’s Circle Ministry (DCM) is a faith-based nonprofit organization headquartered in Kansas, USA. It began as a mentorship initiative focused on helping women maximize their potential, live with purpose, and become agents of positive influence in their communities. Today, the ministry has expanded its reach to support low-income women in Addis Ababa, Ethiopia through targeted economic empowerment programs.
+    </p>
 
-    <ul style="margin-top: 1rem; font-size: 1rem; line-height: 1.6; list-style: disc; padding-left: 1.5rem;">
-      <li>
-        <strong>Women's Empowerment:</strong> We encourage women by fostering confidence, leadership skills, and self-sufficiency. Through workshops and support groups, we create safe spaces where women can build their voice and shape their future.
-      </li>
-      <li>
-        <strong>Education & Literacy:</strong> We provide educational resources, scholarships, and literacy programs to young girls and women in rural Ethiopia, ensuring access to quality education regardless of economic status.
-      </li>
+    <h3 class="section-subheading">Our Core Pillars</h3>
 
-       <figure>
-    <img src="images/empowering.png" alt="Girls studying in rural Ethiopia school">
-    <figcaption>Women's empowerment through community workshops.</figcaption>
-  </figure>
+    <div class="pillar">
+      <h4>Mentorship</h4>
+      <p>
+        We equip women to discover, develop, and live out their God-given potential through personal growth, spiritual enrichment, leadership development, and practical life strategies. Our programs foster holistic growth in both character and purpose.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h4>Economic Empowerment</h4>
+      <p>
+        We empower low-income women in Ethiopia through financial literacy, personal growth coaching, and entrepreneurial training. By offering startup resources, we help women build sustainable income, achieve financial independence, and break the cycle of poverty.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <h4>Maternal Support</h4>
+      <p>
+        We support public hospitals' maternity wards in Addis Ababa by providing essential supplies to new mothers and their babies, helping ensure a healthy start to life.
+      </p>
+    </div>
+
+    <ul class="pillars-list">
       <li>
-        <strong>Faith-Based Mentorship:</strong> Our U.S.-based mentorship programs offer spiritual guidance, life coaching, and community support rooted in Christian values, helping individuals grow in character and purpose.
+        <strong>Women's Empowerment:</strong> Building confidence, leadership, and self-sufficiency through workshops, training, and safe community spaces.
       </li>
       <li>
-        <strong>Economic Empowerment:</strong> We support women in developing vocational skills, small business training, and access to microloans or startup resources — enabling them to generate income and break the cycle of poverty.
+        <strong>Education & Literacy:</strong> Offering scholarships and educational programs to girls and women in rural Ethiopia to promote equitable access to quality learning.
+      </li>
+      <figure>
+        <img src="images/empowering.png" alt="Girls studying in rural Ethiopia school">
+        <figcaption>Women's empowerment through community workshops.</figcaption>
+      </figure>
+      <li>
+        <strong>Faith-Based Mentorship:</strong> Delivering spiritual guidance and life coaching rooted in Christian values to help women grow in character and purpose.
       </li>
       <li>
-        <strong>Community Development:</strong> By partnering with local churches, schools, and community leaders, we ensure a sustainable impact through collaborative initiatives that promote long-term growth and transformation.
+        <strong>Economic Empowerment:</strong> Supporting vocational skills development, microbusiness training, and access to startup funding.
+      </li>
+      <li>
+        <strong>Community Development:</strong> Partnering with local churches, schools, and leaders to promote long-term, sustainable impact through collaboration.
       </li>
     </ul>
 
+    <figure>
+      <img src="images/about.png" alt="Supporting education and literacy for girls in Ethiopia">
+      <figcaption>Promoting literacy and academic growth for underserved girls.</figcaption>
+    </figure>
 
-     <figure>
-    <img src="images/about.png" alt="Girls studying in rural Ethiopia school">
-    <figcaption>Supporting education and literacy for girls in Ethiopia.</figcaption>
-  </figure>
-    <p style="margin-top: 2rem; font-size: 1.1rem;">
-      Together, we are planting seeds of hope, opportunity, and change — one woman, one family, and one community at a time.
+    <p class="quote" style="margin-top: 2rem; font-size: 1.1rem;">
+      Together, we are planting seeds of hope, opportunity, and change—one woman, one family, and one community at a time.
     </p>
-     <h3>Our Vision</h3>
-    <p>Providing microloans, training, and support to help women build sustainable futures.</p>
-    <a href="#donate" class="button">Donate Now</a>
-    <a href="#involve" class="button">Join Us</a>
-    <a href="#about" class="button">Learn More</a>
-     <h3>Our Mission</h3>
-    <p>To awaken and empower women to live for their God-given purpose by using their gifts and talents through mentorship.</p>
-    <p>To equip low-income women in Ethiopia with the tools, training, and financial support they need to start businesses, gain independence, and uplift their communities.</p>
 
+    <h3>Our Vision</h3>
+    <p>To provide microloans, training, and mentorship that enable women to build sustainable, purpose-driven lives.</p>
+
+    <h3>Our Mission</h3>
+    <p>
+      To awaken and empower women to live for their God-given purpose through mentorship and intentional development of their gifts and talents.
+    </p>
+    <p>
+      To equip low-income women in Ethiopia with practical tools, training, and financial resources so they can start businesses, gain independence, and uplift their communities.
+    </p>
+
+    <div class="cta-buttons" style="margin-top: 2rem;">
+      <a href="#donate" class="button">Donate Now</a>
+      <a href="#involve" class="button">Join Us</a>
+      <a href="#about" class="button">Learn More</a>
     </div>
 
-   
-  </section>
+    <!-- Helina Kebede Founder Card -->
+    <section class="helina-card" style="margin-top: 3rem; background-color: #fff8f0; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 900px; margin-left: auto; margin-right: auto;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+        <img src="images/helina.png" alt="Helina Kebede" style="width: 180px; height: auto; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div>
+          <h3 style="margin-bottom: 0.2rem; color: #d2691e;">Helina Kebede</h3>
+          <p style="font-weight: bold; margin-bottom: 1rem;">Founder & Director</p>
+          <p style="margin-bottom: 1rem;">
+            Helina is the visionary behind Deborah Circle Ministry. With a heart for mentoring and empowering women, she leads the organization with passion, faith, and a commitment to lasting impact. Her leadership inspires countless women to step into their God-given purpose.
+          </p>
+          <blockquote style="font-style: italic; background-color: #f9f5f1; padding: 1rem; border-left: 4px solid #d2691e; border-radius: 5px; margin-top: 1rem;">
+            “Arise, shine, for your light has come, and the glory of the LORD rises upon you. Isa 60:1”<br>
+            <span style="font-size: 0.95rem; color: #555;">ብርሃንሽ መጥቶአልና፥ የእግዚአብሔርም ክብር ወቶልሻልና ተነሺ፥ አብሪ።</span>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+    <!-- End Founder Card -->
+
+  </div>
+</section>
 
 
-  <section id="mentorship" class="section">
-    <div class="container">
-      <h3>Mentorship Programs</h3>
-      <p>Faith-based and community-driven mentorship initiatives available in multiple cities. Programs are structured like church gatherings, offering spiritual, emotional, and professional guidance.</p>
-       <h3>Impact at a Glance</h3>
+
+
+ <!-- Mentorship Section -->
+<section id="mentorship" class="section">
+  <div class="container">
+    <h3>Mentorship Programs</h3>
+    <p>
+      Faith-based and community-driven mentorship initiatives available in multiple cities.
+      Programs are structured like church gatherings, offering spiritual, emotional, and professional guidance.
+    </p>
+
+    <h3>Impact at a Glance</h3>
     <ul>
-      <li>💼 <strong>_</strong> Women Trained</li>
-      <li>🌱 <strong>_</strong> Small Businesses Launched</li>
-      <li>🧑‍🏫 <strong>_</strong> Community Members Empowered</li>
+      <li>💼 <strong>120+</strong> Women Trained</li>
+      <li>🌱 <strong>45+</strong> Small Businesses Launched</li>
+      <li>🧑‍🏫 <strong>300+</strong> Community Members Empowered</li>
     </ul>
 
     <h3>Mentorship for Women</h3>
-    <p>We believe every woman has unique gifts and talents. Our program offers holistic mentorship—supporting women in all areas of life so they can discover their purpose, grow with confidence, and reach their full potential.</p>
-    <p><strong>📱 Join Our Viber Community!</strong> Stay connected and inspired through our monthly women's mentorship meetings, special classes, and book club discussions.</p>
-  
-    </div>
-  </section>
+    <p>
+      We believe every woman has unique gifts and talents. Our program offers holistic mentorship—supporting
+      women in all areas of life so they can discover their purpose, grow with confidence, and reach their full potential.
+    </p>
+    <p class="quote">
+      📱 <strong>Join Our Viber Community:</strong> Stay connected and inspired through our monthly women's mentorship meetings,
+      special classes, and book club discussions.
+    </p>
+  </div>
+</section>
 
-   <section id="fundraising" class="section">
-    <div class="container">
-      <h3>Fundraising Campaigns</h3>
-       <img src="images/fundraising.jpg" alt="Women receiving business training and launching small businesses in Ethiopia">
-      <p>We actively raise funds to support women's education, healthcare, and business training in Ethiopia.</p>
-      <a href="#donate" class="button" onclick="showSection('donate')">Support Now</a>
-       <h3>In Partnership With Enat Bank & Enkuwa Tabra</h3>
+<!-- Fundraising Section -->
+<section id="fundraising" class="section">
+  <div class="container">
+    <h3>Fundraising Campaigns</h3>
+    <img src="images/fundraising.jpg" alt="Women receiving business training and launching small businesses in Ethiopia" style="width:100%; max-width:600px; border-radius: 10px; margin: 1rem 0;">
+    <p>
+      We actively raise funds to support women's education, healthcare, and business training in Ethiopia.
+    </p>
+    <a href="#donate" class="button" onclick="showSection('donate')">Support Now</a>
+
+    <h3>In Partnership With Enat Bank & Enkuwa Tabra</h3>
     <ul>
       <li>💰 Small, Low-Interest Loans to launch or grow women-led businesses</li>
       <li>🧭 Mentorship for business guidance and confidence</li>
       <li>📚 Training in Financial Literacy & Personal Development</li>
     </ul>
-    <p>Through our program women gain the tools to achieve financial independence, support their families, and become agents of change in their communities.</p>
-    </div>
-  </section>
+    <p class="quote">
+      Through our program, women gain the tools to achieve financial independence, support their families,
+      and become agents of change in their communities.
+    </p>
+  </div>
+</section>
+
 
   <section id="donate" class="section">
     <div class="container">
@@ -265,41 +335,46 @@
 
 <section id="who" class="section">
   <div class="container">
-    <h3>Who We Are</h3>
+    <h3 style="font-size: 2.2rem; color: #d2691e; margin-bottom: 1rem;">Who We Are</h3>
 
-     <img src="images/who-we-are.jpg" alt="Empowered women in Ethiopia and a community mentor session in the U.S.">
-  <p>
-    We are a nonprofit organization dedicated to uplifting impoverished women in Ethiopia and mentoring underserved communities in the United States. Our mission is grounded in compassion, education, spiritual growth, and economic empowerment.
-  </p>
+    <figure style="text-align: center; margin-bottom: 2rem;">
+      <img src="images/who-we-are.jpg" alt="Empowered women in Ethiopia and a community mentor session in the U.S." style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </figure>
 
-  <h3>Our Mission</h3>
-  <p>
-    To inspire transformation by providing access to education, faith-based mentorship, and economic opportunities for women and families in need—both locally and internationally.
-  </p>
+    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+      We are a nonprofit organization dedicated to uplifting impoverished women in Ethiopia and mentoring underserved communities in the United States. Our mission is grounded in compassion, education, spiritual growth, and economic empowerment.
+    </p>
 
-  <h3>Our Vision</h3>
-  <p>
-    A world where every woman has the resources, support, and confidence to overcome poverty and lead with purpose.
-  </p>
+    <h3 style="font-size: 1.8rem; color: #d2691e; margin-top: 2rem;">Our Mission</h3>
+    <p style="font-size: 1.1rem;">
+      To inspire transformation by providing access to education, faith-based mentorship, and economic opportunities for women and families in need—both locally and internationally.
+    </p>
 
-  <h3>Where We Serve</h3>
-  <p>
-    In Ethiopia, we focus on rural women—supporting education, literacy, and entrepreneurship. In the United States, we support immigrant and underserved communities with mentorship, leadership programs, and life skills.
-  </p>
+    <h3 style="font-size: 1.8rem; color: #d2691e; margin-top: 2rem;">Our Vision</h3>
+    <p style="font-size: 1.1rem;">
+      A world where every woman has the resources, support, and confidence to overcome poverty and lead with purpose.
+    </p>
 
-  <h3>What Makes Us Different</h3>
-  <ul>
-    <li>Faith-led programs that build both personal and spiritual growth</li>
-    <li>Education-focused initiatives tailored for long-term impact</li>
-    <li>Community partnerships that create lasting change</li>
-    <li>Supportive mentoring relationships across generations</li>
-  </ul>
+    <h3 style="font-size: 1.8rem; color: #d2691e; margin-top: 2rem;">Where We Serve</h3>
+    <p style="font-size: 1.1rem;">
+      In Ethiopia, we focus on rural women—supporting education, literacy, and entrepreneurship. In the United States, we support immigrant and underserved communities with mentorship, leadership programs, and life skills.
+    </p>
 
-  <p>
-    <strong>Together, we are building a legacy of strength, dignity, and opportunity for women and families around the world.</strong>
-  </p>
+    <h3 style="font-size: 1.8rem; color: #d2691e; margin-top: 2rem;">What Makes Us Different</h3>
+    <ul style="font-size: 1.1rem; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+      <li>Faith-led programs that build both personal and spiritual growth</li>
+      <li>Education-focused initiatives tailored for long-term impact</li>
+      <li>Community partnerships that create lasting change</li>
+      <li>Supportive mentoring relationships across generations</li>
+    </ul>
+
+    <blockquote style="font-size: 1.2rem; font-weight: bold; text-align: center; margin-top: 2rem; padding: 1rem 1.5rem; border-left: 5px solid #d2691e; background-color: #fff6f0; border-radius: 8px;">
+      Together, we are building a legacy of strength, dignity, and opportunity for women and families around the world.
+    </blockquote>
   </div>
 </section>
+
+
 
 <section id="programs" class="section">
   <div class="container">
@@ -394,6 +469,12 @@
 
   <script>
   const slides = [
+
+   {
+      image: 'images/education.png',
+      title: 'Arise, shine, for your light has come, and the glory of the LORD rises upon you. Isa 60:1 ',
+      text: 'ብርሃንሽ መጥቶአልና፥ የእግዚአብሔርም ክብር ወቶልሻልና ተነሺ፥ አብሪ። '
+    },
     {
       image: 'images/education.png',
       title: 'Empowering Women in Ethiopia & Mentoring Communities in the U.S.',

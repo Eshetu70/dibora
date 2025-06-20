@@ -386,3 +386,77 @@ nav ul.nav-inline li a:hover {
     }
 
  
+
+
+    /* ABOUT SECTION – Enhanced Structure with Color #d2691e */
+#about .section-subheading {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #d2691e;
+  padding-bottom: 0.5rem;
+  color: #d2691e;
+}
+
+#about .pillar {
+  margin-top: 1.5rem;
+}
+
+#about .pillars-list {
+  margin-top: 2rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+#about .pillars-list figure {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+#about .pillars-list img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+#about .cta-buttons a.button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #d2691e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#about .cta-buttons a.button:hover {
+  background-color: #b85718;
+}
+
+.quote {
+      font-style: italic;
+      background-color: #eef6f1;
+      padding: 1rem;
+      border-left: 4px solid #b85718;
+    }
+
+
+
+    .quote {
+  font-style: italic;
+  background-color: #eef6f1;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #d2691e;
+  margin-top: 1rem;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+
+    

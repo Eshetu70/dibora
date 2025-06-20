@@ -247,3 +247,58 @@ footer a:hover {
     text-decoration: none;
     font-weight: bold;
   }
+
+
+
+
+
+
+   h2, h3, h4 {
+      color: #007a33;
+    }
+    .section-subheading {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .pillar {
+      margin-top: 1.5rem;
+    }
+    .pillars-list {
+      margin-top: 2rem;
+      padding-left: 1.5rem;
+      list-style-type: disc;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .pillars-list figure {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .pillars-list img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+    }
+    .quote {
+      font-style: italic;
+      background-color: #eef6f1;
+      padding: 1rem;
+      border-left: 4px solid #007a33;
+    }
+    .cta-buttons a.button {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #007a33;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .cta-buttons a.button:hover {
+      background-color: #005d27;
+    }
