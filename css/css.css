@@ -18,20 +18,132 @@ body {
   padding: 20px 0;
 }
 
-header {
-  background: linear-gradient(90deg, #efa434 33%, #db9934 100%);
-  color: #fff;
-  padding: 20px 0;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* General Header Styling */
+.main-header {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-left: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
 }
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 60px;
+  margin-right: 10px;
+}
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Desktop Nav */
+.desktop-nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+.desktop-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.desktop-nav a:hover {
+  color: #0077b6; /* Blue highlight */
+}
+.donate-btn {
+  background: #e63946;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.donate-btn:hover {
+  background: #d62828;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile Nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #f8f9fa;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  z-index: 2000;
+}
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.mobile-nav li {
+  margin-bottom: 20px;
+}
+.mobile-nav a {
+  color: #333;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.mobile-nav .donate-btn {
+  display: inline-block;
+  margin-top: 10px;
+}
+.close-menu {
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+.nav-contact {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+.nav-social a {
+  margin-right: 10px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
 .menu-toggle {
   font-size: 28px;
   background: none;
