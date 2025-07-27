@@ -9,55 +9,55 @@
   
 </head>
 <body>
-
-<header>
-  <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-    <div style="display: flex; align-items: center;">
-      <img src="images/logos.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
-      <h1>DEBORAH CIRCLE MINISTRY</h1>
+<header class="main-header">
+  <div class="header-container">
+    <!-- Logo & Title -->
+    <div class="logo-section">
+      <img src="images/logos.png" alt="Logo" class="logo" />
+      <h1 class="brand-name">Deborah Circle Ministry</h1>
     </div>
 
-    <!-- 🔷 Desktop Nav with its own sections -->
-    <nav>
-      <ul class="nav-inline">
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul>
         <li><a href="#about" onclick="showSection('about')">About</a></li>
         <li><a href="#mentorship" onclick="showSection('mentorship')">Mentorship</a></li>
         <li><a href="#fundraising" onclick="showSection('fundraising')">Fundraising</a></li>
-        <li><a href="#donate" onclick="showSection('donate')">Donate</a></li>
+        <li><a href="#donate" class="donate-btn" onclick="showSection('donate')">Donate</a></li>
         <li><a href="#podcast" onclick="showSection('podcast')">Podcast</a></li>
       </ul>
     </nav>
 
-    <!-- ☰ Menu Toggle (Mobile) -->
+    <!-- Mobile Menu Button -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </div>
 
-  <!-- 🔷 Mobile Dropdown Nav with different sections -->
-  <nav>
-    <ul class="nav-list" id="navList">
-       <li><a href="#who" onclick="showSection('who'); toggleMenu()">Who We Are</a></li>
-      <span class="close-menu" onclick="toggleMenu()">&times;</span>
+  <!-- Mobile Dropdown Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <span class="close-menu" onclick="toggleMenu()">&times;</span>
+    <ul>
+      <li><a href="#who" onclick="showSection('who'); toggleMenu()">Who We Are</a></li>
       <li><a href="#about" onclick="showSection('about'); toggleMenu()">About</a></li>
-    <li><a href="#mentorship" onclick="showSection('mentorship'); toggleMenu()">Mentorship</a></li>
-    <li><a href="#fundraising" onclick="showSection('fundraising'); toggleMenu()">Fundraising</a></li>
-     
+      <li><a href="#mentorship" onclick="showSection('mentorship'); toggleMenu()">Mentorship</a></li>
+      <li><a href="#fundraising" onclick="showSection('fundraising'); toggleMenu()">Fundraising</a></li>
       <li><a href="#programs" onclick="showSection('programs'); toggleMenu()">Programs</a></li>
       <li><a href="#involve" onclick="showSection('involve'); toggleMenu()">Get Involved</a></li>
-      <li><a href="#donate" onclick="showSection('donate'); toggleMenu()">Donate</a></li>
+      <li><a href="#donate" class="donate-btn" onclick="showSection('donate'); toggleMenu()">Donate</a></li>
       <li><a href="#podcast" onclick="showSection('podcast'); toggleMenu()">Podcast</a></li>
       <li><a href="#contact" onclick="showSection('contact'); toggleMenu()">Contact</a></li>
-      <div class="nav-contact">
-        <p><i class="fas fa-phone"></i> +1 (816) 694-7103</p>
-        <p><i class="fas fa-envelope"></i> contact@diboracircle.org</p>
-        <div class="nav-social">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.youtube.com/channel/UCHU_UMzr0U5KXjmA7jCEbqg"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
     </ul>
+    <div class="nav-contact">
+      <p><i class="fas fa-phone"></i> +1 (816) 694-7103</p>
+      <p><i class="fas fa-envelope"></i> contact@diboracircle.org</p>
+      <div class="nav-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCHU_UMzr0U5KXjmA7jCEbqg"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
   </nav>
 </header>
+
 
 
   <!-- Hero -->
