@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deborah Circle | Empowering Women</title>
+
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64x64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css">
   
@@ -68,22 +75,36 @@
       <p>Join Deborah Circle in creating lasting impact through love, support, and opportunities.</p>
     </div>
   </section>   -->
-<section class="hero" id="hero">
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 10px; position: absolute; top: 0; left: 0; right: 0; z-index: 10;">
-    <!-- 🔵 Left: Language Translator -->
+<section class="hero" id="hero" style="position: relative; height: 500px; overflow: hidden;">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <source src="https://video.wixstatic.com/video/11062b_c20d5f9d292c4007b52f4b71a44d3c6d/720p/mp4/file.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Top Bar with Translate & Donate -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; position: absolute; top: 0; left: 0; right: 0; z-index: 2;">
+    <!-- 🔵 Language Translator -->
     <div id="google_translate_element" class="cta-translate"></div>
 
-    <!-- 🔴 Right: Donate Button -->
-    <a href="#donate" class="donate-button" style="background-color: #ffe600; color: #0c2340; padding: 6px 12px; border-radius: 5px; font-weight: bold; text-decoration: none; font-size: 14px;">Donate</a>
+    <!-- 🔴 Donate Button -->
+    <a href="#donate" class="donate-button" style="background-color: #ffe600; color: #0c2340; padding: 8px 16px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 16px;">
+      Donate
+    </a>
   </div>
 
-  <div class="hero-overlay" style="padding-top: 30px;">
-    <div class="container">
-      <h2 id="hero-title">Empowering Women in Ethiopia & Mentoring Communities in the U.S.</h2>
-      <p id="hero-text">Join Deborah Circle in creating lasting impact through love, support, and opportunities.</p>
-    </div>
+  <!-- Hero Text Content -->
+  <div style="position: relative; z-index: 2; text-align: center; color: #fff; top: 50%; transform: translateY(-50%); padding: 0 20px;">
+    <h2 id="hero-title" style="font-size: 2.1rem; font-weight: bold; margin-bottom: 10px;">
+      Arise, shine, for your light has come, and the glory of the LORD rises upon you. Isa 60:1.
+    </h2>
+    <p id="hero-text" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+      Join Deborah Circle in creating lasting impact through love, support, and opportunities.
+    </p>
   </div>
 </section>
+
+
 
 
 
@@ -506,10 +527,15 @@
       if (target) target.classList.add('active');
     }
   </script>
-
+<!--
   <script>
   const slides = [
 
+   {
+      image: 'images/pray.png',
+      title: 'Arise, shine, for your light has come, and the glory of the LORD rises upon you. Isa 60:1 ',
+      text: 'ብርሃንሽ መጥቶአልና፥ የእግዚአብሔርም ክብር ወቶልሻልና ተነሺ፥ አብሪ። '
+    },
    {
       image: 'images/education.png',
       title: 'Arise, shine, for your light has come, and the glory of the LORD rises upon you. Isa 60:1 ',
@@ -552,6 +578,7 @@
   setInterval(nextSlide, 6000); // Change slide every 6 seconds
 </script>
 
+-->
 
 
 </body>
