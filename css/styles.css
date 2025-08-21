@@ -24,7 +24,7 @@
      header {
   background:
     radial-gradient(1200px 300px at 20% -50%, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(90deg, #d2691e 0%, #7a5b3d 50%, #0c2340 115%);
+    linear-gradient(90deg, teal 0%, #7a5b3d 50%, #0c2340 115%);
   color: #fff;
   padding: 16px 0;
   position: relative;       /* stays visible on scroll */
