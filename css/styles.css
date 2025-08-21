@@ -460,4 +460,48 @@ nav ul.nav-inline li a:hover {
 }
 
 
-    
+    /* Impact counters */
+.impact-metrics {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.impact-metrics li {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.impact-metrics .count {
+  font-size: clamp(1.8rem, 4.5vw, 2.3rem);
+  font-weight: 800;
+  color: #d2691e;          /* brand orange */
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.impact-metrics .label {
+  font-size: 1rem;
+  color: #0c2340;          /* brand navy */
+  font-weight: 600;
+}
+
+/* subtle accent line */
+.impact-metrics li::after {
+  content: "";
+  height: 3px;
+  width: 64px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #d2691e, #0c2340);
+  display: block;
+  margin-top: 6px;
+  opacity: 0.85;
+}

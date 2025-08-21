@@ -28,7 +28,7 @@
 <header>
   <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center;">
-      <img src="images/logos.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
+      <img src="images/logoss.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
       <h1>DEBORAH CIRCLE MINISTRY</h1>
     </div>
 
@@ -86,11 +86,7 @@
   </section>   -->
 <section class="hero" id="hero" style="position: relative; height: 500px; overflow: hidden;">
   <!-- Background Video -->
-  <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-    <source src="https://video.wixstatic.com/video/11062b_c20d5f9d292c4007b52f4b71a44d3c6d/720p/mp4/file.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
+ 
   <!-- Top Bar with Translate & Donate -->
   <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; position: absolute; top: 0; left: 0; right: 0; z-index: 2;">
     <!-- 🔵 Language Translator -->
@@ -269,13 +265,23 @@
       We focus on building a supportive community that empowers women to thrive.
     </p>
 
-    <h3>Impact at a Glance</h3>
-<ul>
-  <li>Women Empowered Through Skills Training</li>
-  <li>Small Businesses Successfully Launched</li>
-  <li>Communities Strengthened and Supported</li>
-  <li>Lives Improved Through Education, Financial Assistance, and Medical Care</li>
+   <h3>Impact at a Glance</h3>
+<ul class="impact-metrics">
+  <li>
+    <span class="count" data-target="50" data-suffix="+">0</span>
+    <span class="label">Women Empowered Through Skills Training</span>
+  </li>
+  <li>
+    <span class="count" data-target="50" data-suffix="+">0</span>
+    <span class="label">Small Businesses Successfully Launched</span>
+  </li>
+  <li>
+    <span class="count" data-target="120" data-suffix="+">0</span>
+    <span class="label">Maternity Wards Supported</span>
+  </li>
+ 
 </ul>
+
 
     <h3>Mentorship for Women</h3>
     <p>
@@ -294,7 +300,7 @@
   <div class="container">
     <h3>Fundraising Campaigns</h3>
     <p>
-      We actively raise funds to support women's education, healthcare, and business training in Ethiopia.
+      We actively raise funds to support women’s training and healthcare initiatives in Ethiopia.
     </p>
 
     <!-- Photo Card Grid -->
@@ -581,7 +587,7 @@
       <!-- Video Card 4 -->
       <div style="background: #ffffff; border-radius: 12px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
         <iframe src="https://drive.google.com/file/d/1GcjczZjf7Vjdql3TllBzkoBrN95n4gW2/preview" width="100%" height="220" allow="autoplay" style="border-radius: 8px; border: none;"></iframe>
-        <h3 style="margin-top: 15px;">Mentorship & Empowerment</h3>
+        <h3 style="margin-top: 15px;">Donations Distribution at Gandhi Hospital</h3>
         <p>Highlights from our mentorship and life-skills workshops with local youth.</p>
       </div>
 
@@ -861,6 +867,47 @@
     </p>
   </div>
 </div>
+
+
+<script>
+  (function () {
+    const easeOut = t => 1 - Math.pow(1 - t, 3);  // smooth end
+    const counters = document.querySelectorAll('.count');
+    if (!counters.length) return;
+
+    function animateCount(el) {
+      if (el.dataset.animated) return;  // run once
+      el.dataset.animated = "true";
+
+      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      const suffix = el.getAttribute('data-suffix') || "";
+      const duration = 1400; // ms
+      const start = performance.now();
+
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const val = Math.round(easeOut(p) * target);
+        el.textContent = val + (p >= 1 ? suffix : "");
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Trigger when visible (and once)
+    const io = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) animateCount(entry.target);
+          });
+        }, { threshold: 0.35 })
+      : null;
+
+    counters.forEach(el => {
+      if (io) io.observe(el);
+      else animateCount(el); // fallback
+    });
+  })();
+</script>
 
 
 </body>
