@@ -418,3 +418,18 @@ footer a:hover {
     .cta-buttons a.button:hover {
       background-color: #005d27;
     }
+
+
+
+
+    header {
+  background:
+    radial-gradient(1200px 300px at 20% -50%, rgba(255,255,255,0.12), transparent 60%),
+    linear-gradient(90deg, #d2691e 0%, #7a5b3d 50%, #0c2340 115%);
+  color: #fff;
+  padding: 16px 0;
+  position: sticky;       /* stays visible on scroll */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
