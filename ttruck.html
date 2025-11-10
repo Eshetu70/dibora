@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Owner‑Operator Settlement Statement</title>
+  <style>
+    :root {
+      --ink: #0f172a;           /* slate-900 */
+      --sub: #475569;           /* slate-600 */
+      --muted: #64748b;         /* slate-500 */
+      --line: #e2e8f0;          /* slate-200 */
+      --paper: #ffffff;
+      --paper-alt: #f8fafc;     /* slate-50 */
+      --accent: #0ea5e9;        /* sky-500 */
+      --accent-deep: #0284c7;   /* sky-600 */
+      --accent-50: #e0f2fe;     /* sky-100 */
+      --accent-25: #f0f9ff;     /* sky-50 */
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink); background: var(--paper-alt);
+    }
+    .wrap { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
+
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 40px rgba(15,23,42,.06); overflow: hidden; }
+    .head { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 24px; align-items: center; border-bottom: 1px solid var(--line);
+            background: linear-gradient(135deg, var(--accent-25), #ffffff); }
+    .brand { display:flex; align-items: center; gap: 14px; }
+    .logo { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-50); display:flex; align-items:center; justify-content:center; color: var(--accent-deep); font-weight: 900; letter-spacing:.5px; }
+    .brand h1 { margin: 0; font-size: 22px; letter-spacing: .2px; }
+    .brand p { margin: 2px 0 0; color: var(--sub); font-size: 13px; }
+    .badge { border: 1px solid var(--accent-deep); color: var(--accent-deep); background: var(--accent-50); padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+
+    .meta { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; padding: 16px 24px 8px; }
+    .field { display:flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 12px; color: var(--sub); letter-spacing: .2px; }
+    .field input, .field textarea, .field select {
+      border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 14px; background: #fff; outline: none;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(14,165,233,.15); }
+
+    .hint { padding: 0 24px 6px; color: var(--muted); font-size: 12px; }
+
+    .table-wrap { padding: 12px 24px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    thead th { text-align: left; font-size: 12px; color: var(--sub); padding: 10px 12px; border-bottom: 2px solid var(--line); background: #fbfdff; }
+    tbody td { padding: 10px 12px; border-bottom: 1px dashed var(--line); vertical-align: middle; }
+    tfoot td { padding: 10px 12px; border-top: 2px solid var(--line); }
+    .idx { width: 42px; text-align: right; color: var(--muted); }
+    .num { text-align: right; }
+    .actions { width: 80px; text-align: right; }
+
+    .icon-btn { border: 1px solid var(--line); background: #fff; padding: 6px 9px; border-radius: 8px; cursor: pointer; transition: .15s ease; }
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent-deep); box-shadow: 0 0 0 3px rgba(14,165,233,.12); }
+
+    .controls { display:flex; gap: 12px; padding: 12px 24px 20px; }
+    .btn { appearance: none; border: 1px solid var(--line); background: #fff; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-weight: 700; transition: .15s ease; }
+    .btn:hover { border-color: var(--accent); box-shadow: 0 6px 14px rgba(2,132,199,.1); }
+    .btn.primary { background: var(--accent-deep); color: #fff; border-color: var(--accent-deep); }
+
+    .summary { display: grid; grid-template-columns: 1.1fr .9fr; gap: 12px; padding: 8px 24px 24px; }
+    .summary .box { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #fff; }
+    .summary h3 { margin: 0 0 8px; font-size: 14px; color: var(--accent-deep); }
+    .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; padding: 6px 0; }
+    .row label { color: var(--sub); font-size: 13px; }
+    .row .val { font-weight: 800; text-align: right; }
+
+    .note { padding: 0 24px 18px; color: var(--muted); font-size: 12px; }
+    .footer { display:flex; justify-content: space-between; align-items:center; border-top: 1px solid var(--line); padding: 14px 24px; color: var(--sub); font-size: 12px; }
+
+    @media print {
+      body { background: #fff; }
+      .controls { display: none !important; }
+      .wrap { margin: 0; padding: 0; }
+      .card { box-shadow: none; border: none; }
+      .head { border-bottom: 1px solid var(--line); }
+      .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="invoice">
+      <div class="head">
+        <div class="brand">
+          <div class="logo">RT</div>
+          <div>
+            <h1 id="titleH1">Truck Owner‑Operator Settlement Statement</h1>
+            <p id="brandP">Reddy Trucking</p>
+          </div>
+        </div>
+    
+      </div>
+
+      <!-- Header Inputs -->
+      <div class="meta">
+        <div class="field"><label>Owner Operator</label><input id="owner" placeholder="Full name"/></div>
+        <div class="field"><label>Truck #</label><input id="truck" placeholder="e.g., 1027"/></div>
+        <div class="field"><label>Settlement Period</label><input id="period" placeholder="YYYY‑MM‑DD to YYYY‑MM‑DD"/></div>
+        <div class="field"><label>Settlement Date</label><input id="setDate" type="date"/></div>
+        <div class="field"><label>Week</label><input id="week" type="text" placeholder="e.g., Week 36"/></div>
+        <div class="field"><label>Company</label><input id="company" value="Reddy Trucking"/></div>
+      </div>
+
+      <div class="hint">Rows add themselves: start typing in the last row and a new one appears. Delete any row with the trash button. Totals use F = B×C + E (SPOT is tracked but not included in F).</div>
+
+      <!-- Line Items Table -->
+      <div class="table-wrap">
+        <table id="lines">
+          <thead>
+            <tr>
+              <th class="idx">#</th>
+              <th>BLOCK RATE (B)</th>
+              <th class="num">TOTAL BLOCKS (C)</th>
+              <th class="num">SPOT (D)</th>
+              <th class="num">ACCESSORIES (E)</th>
+              <th class="num">TOTAL F = B×C + E</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="btn" id="addRow">+ Add Row</button>
+        <button class="btn" id="clearRows">Clear All</button>
+        <button class="btn primary" id="printBtn">Save as PDF</button>
+      </div>
+
+      <!-- Summary -->
+      <div class="summary">
+        <div class="box">
+          <h3>Totals</h3>
+          <div class="row"><label>Gross Earnings (Σ F)</label><div class="val" id="gross">$0.00</div></div>
+          <div class="row"><label>Deductions %</label>
+            <div>
+              <input id="dedPct" type="number" value="5" min="0" step="0.1" style="width:80px; text-align:right;"> %
+            </div>
+          </div>
+          <div class="row"><label>Deductions (auto)</label><div class="val" id="ded5">$0.00</div></div>
+          <div class="row"><label>Insurances</label>
+            <div>
+              <input id="ins" type="number" min="0" step="0.01" value="0" style="width:140px; text-align:right;">
+            </div>
+          </div>
+          <div class="row"><label>ELD</label>
+            <div>
+              <input id="eld" type="number" min="0" step="0.01" value="0" style="width:140px; text-align:right;">
+            </div>
+          </div>
+          <div class="row"><label>Total Deductions</label><div class="val" id="totDed">$0.00</div></div>
+          <div class="row"><label><strong>Net Settlement</strong></label><div class="val" id="net" style="font-size:16px;">$0.00</div></div>
+        </div>
+        <div class="box">
+          <h3>Document</h3>
+          <div class="field"><label>Invoice Title</label><input id="title" value="Owner‑Operator Settlement Statement"/></div>
+          <div class="field"><label>Payee (Owner‑Operator)</label><input id="payee" placeholder="Name on payment"/></div>
+          <div class="field"><label>Address</label><textarea id="address" rows="3" placeholder="Street, City, State, ZIP"></textarea></div>
+          <div class="field"><label>Notes</label><textarea id="notes" rows="3" placeholder="Optional remarks"></textarea></div>
+        </div>
+      </div>
+
+      <div class="note">Use “Save as PDF” to download a polished invoice with all calculations. Rows are added only when needed and can be removed individually.</div>
+
+      <div class="footer">
+        <div>Generated on <span id="genDate"></span></div>
+        <div>© <span id="year"></span> <span id="cmpFooter">Reddy Trucking</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    (function(){
+      const tbody = document.getElementById('tbody');
+      const addBtn = document.getElementById('addRow');
+      const clearBtn = document.getElementById('clearRows');
+      const printBtn = document.getElementById('printBtn');
+
+      const grossEl = document.getElementById('gross');
+      const dedPctEl = document.getElementById('dedPct');
+      const ded5El = document.getElementById('ded5');
+      const insEl = document.getElementById('ins');
+      const eldEl = document.getElementById('eld');
+      const totDedEl = document.getElementById('totDed');
+      const netEl = document.getElementById('net');
+
+      const invId = document.getElementById('invId');
+      const genDate = document.getElementById('genDate');
+      const yearEl = document.getElementById('year');
+      const cmpFooter = document.getElementById('cmpFooter');
+
+      const companyEl = document.getElementById('company');
+      const titleEl = document.getElementById('title');
+
+      const fmt = (n) => (isFinite(n) ? n : 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+      const val = (n) => {
+        const x = parseFloat(n); return isNaN(x) ? 0 : x;
+      };
+
+      const isEmptyRow = (tr) => {
+        const b = tr.querySelector('.b')?.value;
+        const c = tr.querySelector('.c')?.value;
+        const d = tr.querySelector('.d')?.value;
+        const e = tr.querySelector('.e')?.value;
+        return (!b || val(b)===0) && (!c || val(c)===0) && (!d || val(d)===0) && (!e || val(e)===0);
+      };
+
+      function makeRow(idx, preset) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="idx"></td>
+          <td><input type="number" class="b" placeholder="0.00" step="0.01" min="0" ${preset?.b?`value="${preset.b}"`:''}></td>
+          <td class="num"><input type="number" class="c" placeholder="0" step="1" min="0" style="width:110px; text-align:right" ${preset?.c?`value="${preset.c}"`:''}></td>
+          <td class="num"><input type="number" class="d" placeholder="0.00" step="0.01" min="0" style="width:120px; text-align:right" ${preset?.d?`value="${preset.d}"`:''}></td>
+          <td class="num"><input type="number" class="e" placeholder="0.00" step="0.01" min="0" style="width:120px; text-align:right" ${preset?.e?`value="${preset.e}"`:''}></td>
+          <td class="num"><strong class="f">$0.00</strong></td>
+          <td class="actions"><button class="icon-btn del" title="Delete">🗑</button></td>`;
+        attachHandlers(tr);
+        return tr;
+      }
+
+      function renumberRows() {
+        [...tbody.querySelectorAll('tr')].forEach((tr, i) => {
+          tr.querySelector('.idx').textContent = i + 1;
+        });
+      }
+
+      function attachHandlers(tr) {
+        const inputs = tr.querySelectorAll('input');
+        inputs.forEach(inp => inp.addEventListener('input', () => {
+          recalc();
+          maybeAutoAdd(tr);
+        }));
+        const del = tr.querySelector('.del');
+        del.addEventListener('click', () => {
+          tr.remove();
+          if (tbody.children.length === 0) addRow();
+          renumberRows();
+          recalc();
+        });
+      }
+
+      function maybeAutoAdd(tr) {
+        const rows = [...tbody.querySelectorAll('tr')];
+        if (!rows.length) return;
+        const last = rows[rows.length - 1];
+        if (tr === last && !isEmptyRow(last)) addRow();
+      }
+
+      function recalc() {
+        let gross = 0;
+        [...tbody.querySelectorAll('tr')].forEach(tr => {
+          const b = val(tr.querySelector('.b')?.value);
+          const c = val(tr.querySelector('.c')?.value);
+          const e = val(tr.querySelector('.e')?.value);
+          const f = b * c + e;  // F = B*C + E
+          tr.querySelector('.f').textContent = fmt(f);
+          if (!isEmptyRow(tr)) gross += f;
+        });
+        grossEl.textContent = fmt(gross);
+
+        const pct = Math.max(0, val(dedPctEl.value)) / 100;
+        const d5 = gross * pct;  // auto % deduction
+        ded5El.textContent = fmt(d5);
+
+        const ins = Math.max(0, val(insEl.value));
+        const eld = Math.max(0, val(eldEl.value));
+        const totD = d5 + ins + eld;
+        totDedEl.textContent = fmt(totD);
+        netEl.textContent = fmt(gross - totD);
+      }
+
+      function addRow(preset) {
+        const tr = makeRow((tbody.children.length + 1), preset);
+        tbody.appendChild(tr);
+        renumberRows();
+        recalc();
+        return tr;
+      }
+
+      function clearRows() {
+        tbody.innerHTML = '';
+        addRow();
+        recalc();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Initialize with a single empty row
+      addRow();
+
+      // Optional: prefill a sample row
+      // addRow({ b: 1234, c: 3, e: 11 });
+
+      addBtn.addEventListener('click', () => addRow());
+      clearBtn.addEventListener('click', clearRows);
+      [dedPctEl, insEl, eldEl].forEach(el => el.addEventListener('input', recalc));
+
+      // Print / PDF
+      printBtn.addEventListener('click', () => {
+        const owner = document.getElementById('owner').value || 'Owner-Operator';
+        const dt = (document.getElementById('setDate').value || new Date().toISOString().slice(0,10));
+        document.title = `${owner} – Settlement – ${dt}`;
+        window.print();
+      });
+
+      // Decorative meta
+      const now = new Date();
+      const id = 'INV-' + now.getFullYear().toString().slice(-2) + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0');
+      invId.textContent = id;
+      genDate.textContent = now.toLocaleString();
+      yearEl.textContent = now.getFullYear();
+
+      // Keep footer/company in sync and title binding
+      const syncFooter = () => cmpFooter.textContent = (companyEl.value || 'Reddy Trucking');
+      companyEl.addEventListener('input', syncFooter); syncFooter();
+      titleEl.addEventListener('input', e => {
+        const v = e.target.value || 'Owner‑Operator Settlement Statement';
+        document.getElementById('titleH1').textContent = v;
+      });
+
+      // Initial compute
+      recalc();
+    })();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Owner‑Operator Settlement Statement</title>
+  <style>
+    :root {
+      --ink: #0f172a;           /* slate-900 */
+      --sub: #475569;           /* slate-600 */
+      --muted: #64748b;         /* slate-500 */
+      --line: #e2e8f0;          /* slate-200 */
+      --paper: #ffffff;
+      --paper-alt: #f8fafc;     /* slate-50 */
+      --accent: #0ea5e9;        /* sky-500 */
+      --accent-deep: #0284c7;   /* sky-600 */
+      --accent-50: #e0f2fe;     /* sky-100 */
+      --accent-25: #f0f9ff;     /* sky-50 */
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink); background: var(--paper-alt);
+    }
+    .wrap { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
+
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 40px rgba(15,23,42,.06); overflow: hidden; }
+    .head { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 24px; align-items: center; border-bottom: 1px solid var(--line);
+            background: linear-gradient(135deg, var(--accent-25), #ffffff); }
+    .brand { display:flex; align-items: center; gap: 14px; }
+    .logo { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-50); display:flex; align-items:center; justify-content:center; color: var(--accent-deep); font-weight: 900; letter-spacing:.5px; }
+    .brand h1 { margin: 0; font-size: 22px; letter-spacing: .2px; }
+    .brand p { margin: 2px 0 0; color: var(--sub); font-size: 13px; }
+    .badge { border: 1px solid var(--accent-deep); color: var(--accent-deep); background: var(--accent-50); padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+
+    .meta { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; padding: 16px 24px 8px; }
+    .field { display:flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 12px; color: var(--sub); letter-spacing: .2px; }
+    .field input, .field textarea, .field select {
+      border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 14px; background: #fff; outline: none;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(14,165,233,.15); }
+
+    .hint { padding: 0 24px 6px; color: var(--muted); font-size: 12px; }
+
+    .table-wrap { padding: 12px 24px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    thead th { text-align: left; font-size: 12px; color: var(--sub); padding: 10px 12px; border-bottom: 2px solid var(--line); background: #fbfdff; }
+    tbody td { padding: 10px 12px; border-bottom: 1px dashed var(--line); vertical-align: middle; }
+    tfoot td { padding: 10px 12px; border-top: 2px solid var(--line); }
+    .idx { width: 42px; text-align: right; color: var(--muted); }
+    .num { text-align: right; }
+    .actions { width: 80px; text-align: right; }
+
+    .icon-btn { border: 1px solid var(--line); background: #fff; padding: 6px 9px; border-radius: 8px; cursor: pointer; transition: .15s ease; }
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent-deep); box-shadow: 0 0 0 3px rgba(14,165,233,.12); }
+
+    .controls { display:flex; gap: 12px; padding: 12px 24px 20px; }
+    .btn { appearance: none; border: 1px solid var(--line); background: #fff; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-weight: 700; transition: .15s ease; }
+    .btn:hover { border-color: var(--accent); box-shadow: 0 6px 14px rgba(2,132,199,.1); }
+    .btn.primary { background: var(--accent-deep); color: #fff; border-color: var(--accent-deep); }
+
+    .summary { display: grid; grid-template-columns: 1.1fr .9fr; gap: 12px; padding: 8px 24px 24px; }
+    .summary .box { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #fff; }
+    .summary h3 { margin: 0 0 8px; font-size: 14px; color: var(--accent-deep); }
+    .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; padding: 6px 0; }
+    .row label { color: var(--sub); font-size: 13px; }
+    .row .val { font-weight: 800; text-align: right; }
+
+    .note { padding: 0 24px 18px; color: var(--muted); font-size: 12px; }
+    .footer { display:flex; justify-content: space-between; align-items:center; border-top: 1px solid var(--line); padding: 14px 24px; color: var(--sub); font-size: 12px; }
+
+    @media print {
+      body { background: #fff; }
+      .controls { display: none !important; }
+      .wrap { margin: 0; padding: 0; }
+      .card { box-shadow: none; border: none; }
+      .head { border-bottom: 1px solid var(--line); }
+      .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="invoice">
+      <div class="head">
+        <div class="brand">
+          <div class="logo">RT</div>
+          <div>
+            <h1 id="titleH1">Truck Owner‑Operator Settlement Statement</h1>
+            <p id="brandP">Reddy Trucking</p>
+          </div>
+        </div>
+        <span class="badge" id="invId">Invoice #</span>
+      </div>
+
+      <!-- Header Inputs -->
+      <div class="meta">
+        <div class="field"><label>Owner Operator</label><input id="owner" placeholder="Full name"/></div>
+        <div class="field"><label>Truck #</label><input id="truck" placeholder="e.g., 1027"/></div>
+        <div class="field"><label>Settlement Period</label><input id="period" placeholder="YYYY‑MM‑DD to YYYY‑MM‑DD"/></div>
+        <div class="field"><label>Settlement Date</label><input id="setDate" type="date"/></div>
+        <div class="field"><label>Week</label><input id="week" type="text" placeholder="e.g., Week 36"/></div>
+        <div class="field"><label>Company</label><input id="company" value="Reddy Trucking"/></div>
+      </div>
+
+      <div class="hint">Rows add themselves: start typing in the last row and a new one appears. Delete any row with the trash button. Totals use F = B×C + E (SPOT is tracked but not included in F).</div>
+
+      <!-- Line Items Table -->
+      <div class="table-wrap">
+        <table id="lines">
+          <thead>
+            <tr>
+              <th class="idx">#</th>
+              <th>BLOCK RATE (B)</th>
+              <th class="num">TOTAL BLOCKS (C)</th>
+              <th class="num">SPOT (D)</th>
+              <th class="num">ACCESSORIES (E)</th>
+              <th class="num">TOTAL F = B×C + E</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="btn" id="addRow">+ Add Row</button>
+        <button class="btn" id="clearRows">Clear All</button>
+        <button class="btn primary" id="printBtn">Save as PDF</button>
+      </div>
+
+      <!-- Summary -->
+      <div class="summary">
+        <div class="box">
+          <h3>Totals</h3>
+          <div class="row"><label>Gross Earnings (Σ F)</label><div class="val" id="gross">$0.00</div></div>
+          <div class="row"><label>Deductions %</label>
+            <div>
+              <input id="dedPct" type="number" value="5" min="0" step="0.1" style="width:80px; text-align:right;"> %
+            </div>
+          </div>
+          <div class="row"><label>Deductions (auto)</label><div class="val" id="ded5">$0.00</div></div>
+          <div class="row"><label>Insurances</label>
+            <div>
+              <input id="ins" type="number" min="0" step="0.01" value="0" style="width:140px; text-align:right;">
+            </div>
+          </div>
+          <div class="row"><label>ELD</label>
+            <div>
+              <input id="eld" type="number" min="0" step="0.01" value="0" style="width:140px; text-align:right;">
+            </div>
+          </div>
+          <div class="row"><label>Total Deductions</label><div class="val" id="totDed">$0.00</div></div>
+          <div class="row"><label><strong>Net Settlement</strong></label><div class="val" id="net" style="font-size:16px;">$0.00</div></div>
+        </div>
+        <div class="box">
+          <h3>Document</h3>
+          <div class="field"><label>Invoice Title</label><input id="title" value="Owner‑Operator Settlement Statement"/></div>
+          <div class="field"><label>Payee (Owner‑Operator)</label><input id="payee" placeholder="Name on payment"/></div>
+          <div class="field"><label>Address</label><textarea id="address" rows="3" placeholder="Street, City, State, ZIP"></textarea></div>
+          <div class="field"><label>Notes</label><textarea id="notes" rows="3" placeholder="Optional remarks"></textarea></div>
+        </div>
+      </div>
+
+      <div class="note">Use “Save as PDF” to download a polished invoice with all calculations. Rows are added only when needed and can be removed individually.</div>
+
+      <div class="footer">
+        <div>Generated on <span id="genDate"></span></div>
+        <div>© <span id="year"></span> <span id="cmpFooter">Reddy Trucking</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    (function(){
+      const tbody = document.getElementById('tbody');
+      const addBtn = document.getElementById('addRow');
+      const clearBtn = document.getElementById('clearRows');
+      const printBtn = document.getElementById('printBtn');
+
+      const grossEl = document.getElementById('gross');
+      const dedPctEl = document.getElementById('dedPct');
+      const ded5El = document.getElementById('ded5');
+      const insEl = document.getElementById('ins');
+      const eldEl = document.getElementById('eld');
+      const totDedEl = document.getElementById('totDed');
+      const netEl = document.getElementById('net');
+
+      const invId = document.getElementById('invId');
+      const genDate = document.getElementById('genDate');
+      const yearEl = document.getElementById('year');
+      const cmpFooter = document.getElementById('cmpFooter');
+
+      const companyEl = document.getElementById('company');
+      const titleEl = document.getElementById('title');
+
+      const fmt = (n) => (isFinite(n) ? n : 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+      const val = (n) => {
+        const x = parseFloat(n); return isNaN(x) ? 0 : x;
+      };
+
+      const isEmptyRow = (tr) => {
+        const b = tr.querySelector('.b')?.value;
+        const c = tr.querySelector('.c')?.value;
+        const d = tr.querySelector('.d')?.value;
+        const e = tr.querySelector('.e')?.value;
+        return (!b || val(b)===0) && (!c || val(c)===0) && (!d || val(d)===0) && (!e || val(e)===0);
+      };
+
+      function makeRow(idx, preset) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="idx"></td>
+          <td><input type="number" class="b" placeholder="0.00" step="0.01" min="0" ${preset?.b?`value="${preset.b}"`:''}></td>
+          <td class="num"><input type="number" class="c" placeholder="0" step="1" min="0" style="width:110px; text-align:right" ${preset?.c?`value="${preset.c}"`:''}></td>
+          <td class="num"><input type="number" class="d" placeholder="0.00" step="0.01" min="0" style="width:120px; text-align:right" ${preset?.d?`value="${preset.d}"`:''}></td>
+          <td class="num"><input type="number" class="e" placeholder="0.00" step="0.01" min="0" style="width:120px; text-align:right" ${preset?.e?`value="${preset.e}"`:''}></td>
+          <td class="num"><strong class="f">$0.00</strong></td>
+          <td class="actions"><button class="icon-btn del" title="Delete">🗑</button></td>`;
+        attachHandlers(tr);
+        return tr;
+      }
+
+      function renumberRows() {
+        [...tbody.querySelectorAll('tr')].forEach((tr, i) => {
+          tr.querySelector('.idx').textContent = i + 1;
+        });
+      }
+
+      function attachHandlers(tr) {
+        const inputs = tr.querySelectorAll('input');
+        inputs.forEach(inp => inp.addEventListener('input', () => {
+          recalc();
+          maybeAutoAdd(tr);
+        }));
+        const del = tr.querySelector('.del');
+        del.addEventListener('click', () => {
+          tr.remove();
+          if (tbody.children.length === 0) addRow();
+          renumberRows();
+          recalc();
+        });
+      }
+
+      function maybeAutoAdd(tr) {
+        const rows = [...tbody.querySelectorAll('tr')];
+        if (!rows.length) return;
+        const last = rows[rows.length - 1];
+        if (tr === last && !isEmptyRow(last)) addRow();
+      }
+
+      function recalc() {
+        let gross = 0;
+        [...tbody.querySelectorAll('tr')].forEach(tr => {
+          const b = val(tr.querySelector('.b')?.value);
+          const c = val(tr.querySelector('.c')?.value);
+          const e = val(tr.querySelector('.e')?.value);
+          const f = b * c + e;  // F = B*C + E
+          tr.querySelector('.f').textContent = fmt(f);
+          if (!isEmptyRow(tr)) gross += f;
+        });
+        grossEl.textContent = fmt(gross);
+
+        const pct = Math.max(0, val(dedPctEl.value)) / 100;
+        const d5 = gross * pct;  // auto % deduction
+        ded5El.textContent = fmt(d5);
+
+        const ins = Math.max(0, val(insEl.value));
+        const eld = Math.max(0, val(eldEl.value));
+        const totD = d5 + ins + eld;
+        totDedEl.textContent = fmt(totD);
+        netEl.textContent = fmt(gross - totD);
+      }
+
+      function addRow(preset) {
+        const tr = makeRow((tbody.children.length + 1), preset);
+        tbody.appendChild(tr);
+        renumberRows();
+        recalc();
+        return tr;
+      }
+
+      function clearRows() {
+        tbody.innerHTML = '';
+        addRow();
+        recalc();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Initialize with a single empty row
+      addRow();
+
+      // Optional: prefill a sample row
+      // addRow({ b: 1234, c: 3, e: 11 });
+
+      addBtn.addEventListener('click', () => addRow());
+      clearBtn.addEventListener('click', clearRows);
+      [dedPctEl, insEl, eldEl].forEach(el => el.addEventListener('input', recalc));
+
+      // Print / PDF
+      printBtn.addEventListener('click', () => {
+        const owner = document.getElementById('owner').value || 'Owner-Operator';
+        const dt = (document.getElementById('setDate').value || new Date().toISOString().slice(0,10));
+        document.title = `${owner} – Settlement – ${dt}`;
+        window.print();
+      });
+
+      // Decorative meta
+      const now = new Date();
+      const id = 'INV-' + now.getFullYear().toString().slice(-2) + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0');
+      invId.textContent = id;
+      genDate.textContent = now.toLocaleString();
+      yearEl.textContent = now.getFullYear();
+
+      // Keep footer/company in sync and title binding
+      const syncFooter = () => cmpFooter.textContent = (companyEl.value || 'Reddy Trucking');
+      companyEl.addEventListener('input', syncFooter); syncFooter();
+      titleEl.addEventListener('input', e => {
+        const v = e.target.value || 'Owner‑Operator Settlement Statement';
+        document.getElementById('titleH1').textContent = v;
+      });
+
+      // Initial compute
+      recalc();
+    })();
+  </script>
+</body>
+</html>
